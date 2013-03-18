@@ -58,4 +58,19 @@ printf('  Logouts:               %11s', num(nrow(logout)))
 printf('  Unique Regular Users:  %11s', num(length(unique(subset(wst,guest_flag=='f')$user_hash))))
 printf('  Unique Guest Users:    %11s', num(length(unique(subset(wst,guest_flag=='t')$user_hash))))
 printf('  Unique Computer Names: %11s', num(length(unique(computer_name))))
-       
+printf('')
+
+printf('Logins by Building')
+logins.building <- tapply(login$building, login$building, FUN=length)
+for (row in rownames(logins.building)) {
+  printf('  %8s %10s',row,num(logins.building[row]))
+}
+printf('')
+
+printf('Logins by OS')
+logins.os <- tapply(login$os, login$os, FUN=length)
+for (row in rownames(logins.os)) {
+  printf('  %20s %10s',row,num(logins.os[row]))
+}
+printf('')
+
