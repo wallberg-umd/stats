@@ -41,6 +41,8 @@ printf('Processing data...')
 wst <- transform(wst_orig, computer_name=tolower(computer_name))
 wst <- subset(wst, substr(computer_name,1,5) == 'libwk')
 wst <- transform(wst, building=getBuilding(computer_name))
+wst <- transform(wst, timestamp=as.POSIXct(timestamp, "%Y-%m-%d %H:%M:%S", tz="UTC"))
+wst <- transform(wst, wday=weekdays(as.Date(timestamp)))
 attach(wst)
 login = subset(wst, status=='login')
 logout = subset(wst, status=='logout')
@@ -74,3 +76,11 @@ for (row in rownames(logins.os)) {
 }
 printf('')
 
+printf('Logins by Day of the Week')
+logins.wday <- tapply(login$wday, login$wday, FUN=length)
+for (row in c('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday')) {
+  printf('  %9s %10s',row,num(logins.wday[row]))
+}
+printf('')
+
+#print(wst)
