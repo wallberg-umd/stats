@@ -38,6 +38,7 @@ if (length(args) == 1) {
 }
 
 printf('Processing data...')
+names(wst_orig) <- gsub("\\.", "_", tolower(names(wst_orig)))
 wst <- transform(wst_orig, computer_name=tolower(computer_name))
 wst <- subset(wst, substr(computer_name,1,5) == 'libwk')
 wst <- transform(wst, building=getBuilding(computer_name))
@@ -57,8 +58,8 @@ printf('  Total Entries:         %11s', num(nrow(wst_orig)))
 printf('  Accepted Entries:      %11s', num(nrow(wst)))
 printf('  Logins:                %11s', num(nrow(login)))
 printf('  Logouts:               %11s', num(nrow(logout)))
-printf('  Unique Regular Users:  %11s', num(length(unique(subset(wst,guest_flag=='f')$user_hash))))
-printf('  Unique Guest Users:    %11s', num(length(unique(subset(wst,guest_flag=='t')$user_hash))))
+printf('  Unique Regular Users:  %11s', num(length(unique(subset(wst,guest_flag=='false')$user_hash))))
+printf('  Unique Guest Users:    %11s', num(length(unique(subset(wst,guest_flag=='true')$user_hash))))
 printf('  Unique Computer Names: %11s', num(length(unique(computer_name))))
 printf('')
 
