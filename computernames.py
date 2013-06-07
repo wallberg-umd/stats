@@ -58,10 +58,10 @@ print '======='
 print 'Total: ', sum([p[2] for p in pList])
 
 print ''
-print "%-35s  %-20s  %5s" % ("Description", "Regex", "Count")
-print "%-35s  %-20s  %5s" % ("-"*35, "-"*20, "-"*5)
+print "%-35s  %-25s  %-6s" % ("Description", "Regex", "Count")
+print "%-35s  %-25s  %-6s" % ("-"*35, "-"*20, "-"*6)
 for p in pList:
-    print "%-35s  %-20s  %d" % (p[1], p[0], p[2])
+    print "%-35s  %-25s  %6d" % (p[1], p[0], p[2])
 
 print ''
 print 'Non Matches'
@@ -69,7 +69,7 @@ print '==========='
 print 'Total: ', len(nomatch)
 
 print ''
-print "%-20s  %5s" % ("Computer Name", "Count")
-print "%-20s  %5s" % ("-"*20, "-"*5)
+print "%-20s  %-5s" % ("Computer Name", "Count")
+print "%-20s  %-5s" % ("-"*20, "-"*5)
 for line in sorted(nomatch.keys(), key=str.lower):
-    print "%-20s  %d" % (line, nomatch[line])
+    print "%-20s  %5d" % (line, nomatch[line])
