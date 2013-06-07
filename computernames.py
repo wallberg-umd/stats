@@ -2,6 +2,7 @@
 
 import fileinput
 import re
+from collections import defaultdict
 
 # generate report matching and non-matching computer names based on regex
 # map to workstation locations, in preparation for adding Workstation
@@ -41,7 +42,7 @@ pList = [
     ]
 
 # track computer names that didn't match anything
-nomatch = []
+nomatch = defaultdict(int)
 
 for line in fileinput.input():
     # normalize
@@ -54,7 +55,7 @@ for line in fileinput.input():
             p[2] += 1
             break
     else:
-        nomatch.append(line)
+        nomatch[line] += 1
 
 # print the results
 print 'Matches'
@@ -72,5 +73,8 @@ print 'Non Matches'
 print '==========='
 print 'Total: ', len(nomatch)
 
-for line in nomatch:
-    print line
+print ''
+print "%-20s  %5s" % ("Computer Name", "Count")
+print "%-20s  %5s" % ("-"*20, "-"*5)
+for line in sorted(nomatch.keys(), key=str.lower):
+    print "%-20s  %d" % (line, nomatch[line])
