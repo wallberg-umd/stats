@@ -11,23 +11,18 @@ from collections import defaultdict
 # List of [pattern, description, count]
 pList = [ 
     ['^libwkmck1f\d+.*$', 'McKeldin Library 1st floor', 0],
-    ['^libwkma2f\d+.*$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmb2f\d+.*$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmc2f\d+.*$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmd2f\d+.*$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmck3f\d+.*$', 'McKeldin Library 3rd floor', 0],
+    ['^libwkm[abcd]2f\d+.*$', 'McKeldin Library 2nd floor', 0],
     ['^libwkmck4f\d+.*$', 'McKeldin Library 4th floor', 0],
     ['^libwkmck5f\d+.*$', 'McKeldin Library 5th floor', 0],
     ['^libwkmck6f\d+.*$', 'McKeldin Library 6th floor', 0],
     ['^libwkmck7f\d+.*$', 'McKeldin Library 7th floor', 0],
 
-    ['^libwkepsl\d+.*$', 'Engineering Library 1st floor', 0],
-    ['^libwkepsl3f\d+.*$', 'Engineering Library 3rd floor', 0],
+    ['^libwkepsl\d+g?$', 'Engineering Library 1st floor', 0],
+    ['^libwkepsl3f\d+g?$', 'Engineering Library 3rd floor', 0],
 
-    ['^libwkchem\d+.*$', 'Chemistry Library 1st floor', 0],
-    ['^libwkchem1f\d+.*$', 'Chemistry Library 1st floor', 0],
-    ['^libwkchem2f\d+.*$', 'Chemistry Library 2nd floor', 0],
-    ['^libwkchem3f\d+.*$', 'Chemistry Library 3rd floor', 0],
+    ['^libwkchem(1f)?\d+g?$', 'Chemistry Library 1st floor', 0],
+    ['^libwkchem2f\d+g?$', 'Chemistry Library 2nd floor', 0],
+    ['^libwkchem3f\d+g?$', 'Chemistry Library 3rd floor', 0],
 
     ['^libwknp\d+.*$', 'Nonprint Library 1st floor', 0],
 
