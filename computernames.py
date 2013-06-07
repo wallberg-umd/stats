@@ -9,35 +9,35 @@ import re
 
 # List of [pattern, description, count]
 pList = [ 
-    ['^libwkmck1f\d+$', 'McKeldin Library 1st floor', 0],
-    ['^libwkma2f\d+$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmb2f\d+$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmc2f\d+$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmd2f\d+$', 'McKeldin Library 2nd floor', 0],
-    ['^libwkmck3f\d+$', 'McKeldin Library 3rd floor', 0],
-    ['^libwkmck4f\d+$', 'McKeldin Library 4th floor', 0],
-    ['^libwkmck5f\d+$', 'McKeldin Library 5th floor', 0],
-    ['^libwkmck6f\d+$', 'McKeldin Library 6th floor', 0],
-    ['^libwkmck7f\d+$', 'McKeldin Library 7th floor', 0],
+    ['^libwkmck1f\d+.*$', 'McKeldin Library 1st floor', 0],
+    ['^libwkma2f\d+.*$', 'McKeldin Library 2nd floor', 0],
+    ['^libwkmb2f\d+.*$', 'McKeldin Library 2nd floor', 0],
+    ['^libwkmc2f\d+.*$', 'McKeldin Library 2nd floor', 0],
+    ['^libwkmd2f\d+.*$', 'McKeldin Library 2nd floor', 0],
+    ['^libwkmck3f\d+.*$', 'McKeldin Library 3rd floor', 0],
+    ['^libwkmck4f\d+.*$', 'McKeldin Library 4th floor', 0],
+    ['^libwkmck5f\d+.*$', 'McKeldin Library 5th floor', 0],
+    ['^libwkmck6f\d+.*$', 'McKeldin Library 6th floor', 0],
+    ['^libwkmck7f\d+.*$', 'McKeldin Library 7th floor', 0],
 
-    ['^libwkepsl\d+$', 'Engineering Library 1st floor', 0],
-    ['^libwkepsl3f\d+$', 'Engineering Library 3rd floor', 0],
+    ['^libwkepsl\d+.*$', 'Engineering Library 1st floor', 0],
+    ['^libwkepsl3f\d+.*$', 'Engineering Library 3rd floor', 0],
 
-    ['^libwkchem\d+$', 'Chemistry Library 1st floor', 0],
-    ['^libwkchem1f\d+$', 'Chemistry Library 1st floor', 0],
-    ['^libwkchem2f\d+$', 'Chemistry Library 2nd floor', 0],
-    ['^libwkchem3f\d+$', 'Chemistry Library 3rd floor', 0],
+    ['^libwkchem\d+.*$', 'Chemistry Library 1st floor', 0],
+    ['^libwkchem1f\d+.*$', 'Chemistry Library 1st floor', 0],
+    ['^libwkchem2f\d+.*$', 'Chemistry Library 2nd floor', 0],
+    ['^libwkchem3f\d+.*$', 'Chemistry Library 3rd floor', 0],
 
-    ['^libwknp\d+$', 'Nonprint Library 1st floor', 0],
+    ['^libwknp\d+.*$', 'Nonprint Library 1st floor', 0],
 
     ['^libwkmd\d+$', 'MARYLANDIA', 0],
     
-    ['^libwkpal1f\d+$', 'PAL 1st floor', 0],
-    ['^libwkpal2f\d+$', 'PAL 2nd floor', 0],
+    ['^libwkpal1f\d+.*$', 'PAL 1st floor', 0],
+    ['^libwkpal2f\d+.*$', 'PAL 2nd floor', 0],
     
-    ['^libwkart\d+$', 'Art Library 1st floor', 0],
+    ['^libwkart.*$', 'Art Library 1st floor', 0],
 
-    ['^libwkarc\d+$', 'Arch Library', 0],
+    ['^libwkarc.*$', 'Arch Library', 0],
     ]
 
 # track computer names that didn't match anything
