@@ -15,9 +15,17 @@ pList = [
     ['^libwkmck4f\d+.*$', 'McKeldin Library 4th floor', 0],
     ['^libwkmck5f\d+.*$', 'McKeldin Library 5th floor', 0],
     ['^libwkmck6f\d+.*$', 'McKeldin Library 6th floor', 0],
+    ['^libwk6f1.*$', 'McKeldin Library 6th floor RM 6101', 0],
+    ['^libwk6f3.*$', 'McKeldin Library 6th floor RM 6103', 0],
+    ['^libwk6f7.*$', 'McKeldin Library 6th floor RM 6107', 0],
+
     ['^libwkmck7f\d+.*$', 'McKeldin Library 7th floor', 0],
 
+    ['^libwkatl.*$', 'Adaptive Technology Lab', 0],
+
+
     ['^libwkepsl\d+g?$', 'Engineering Library 1st floor', 0],
+    ['^libwkepsl2f\d+$', 'Engineering Library 2nd floor', 0],
     ['^libwkepsl3f\d+g?$', 'Engineering Library 3rd floor', 0],
 
     ['^libwkchem(1f)?\d+g?$', 'Chemistry Library 1st floor', 0],
@@ -34,6 +42,8 @@ pList = [
     ['^libwkart.*$', 'Art Library 1st floor', 0],
 
     ['^libwkarc.*$', 'Arch Library', 0],
+
+    ['^((?!libwk)|(libwkmckdel)).*$', 'Ignored', 0],
     ]
 
 # track computer names that didn't match anything
