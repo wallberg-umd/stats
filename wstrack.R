@@ -21,36 +21,36 @@ num <- function(num) {
 }
 
 # Get location of workstation using regex matching on the workstation name
+location.map = read.csv("computernames.csv")
+
 location.cache = new.env(hash=TRUE)
 
 getLocation <- function(location) {
 
   for (i in seq_along(location)) {
-    name = location[i]
-    
-    cache.hit = FALSE
-    location.mapped = NULL
-    
+    name = location[[i]]
+
     if (exists(name, envir=location.cache)) {
       # use the cached value
-      location.mapped <- location.cache[[name]]
-      cache.hit = TRUE
+      location[[i]] <- location.cache[[name]]
       
-    } else if (str_detect(name, perl('^libwkmck1f\\d+.*$'))) {
-      location.mapped <- 'McKeldin Library 1st floor'
-    
-    } else if (str_detect(name, perl('^libwkm[abcd]2f\\d+.*$'))) {
-      location.mapped <- 'McKeldin Library 2nd floor'
-    
     } else {
-      location.mapped <- 'Unknown Location'
-    }
-    
-    location[i] <- location.mapped
-    
-    # save the mapping in the cache
-    if (! cache.hit) {
-      location.cache[[name]] = location.mapped
+
+      location[[i]] <- 'Unknown Location'
+
+      for(j in 1:nrow(location.map)) {
+        map.entry <- location.map[j,]
+
+        # check for match on regex
+        if (str_detect(name, perl(as.character(map.entry[['regex']])))) {
+          # match found
+          location[[i]] <- as.character(map.entry[['location']])
+          break
+        }
+      }
+
+      # save the mapping in the cache
+      location.cache[[name]] = location[[i]]
     }
   }
 
