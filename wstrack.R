@@ -95,7 +95,7 @@ printf('')
 printf('Logins by Location')
 logins.location <- tapply(login$location, login$location, FUN=length)
 for (row in rownames(logins.location)) {
-  printf('  %8s %10s',row,num(logins.location[row]))
+  printf('  %35s %10s',row,num(logins.location[row]))
 }
 printf('')
 
