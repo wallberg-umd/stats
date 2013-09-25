@@ -60,10 +60,17 @@ getLocation <- function(location) {
 # read input file
 printf('Reading input file...')
 args <- commandArgs(trailingOnly = TRUE)
-if (length(args) == 1) {
-  wst_orig= read.csv(args[1])
+if (length(args) >= 1) {
+  wst_orig= read.csv(args[[1]])
 } else {
   wst_orig= read.csv("/dev/stdin")
+}
+
+# get output file, if supplied
+out.file <- FALSE
+if (length(args) >= 2) {
+  out.file <- TRUE
+  out.file.name = args[[2]]
 }
 
 printf('Processing data...')
@@ -113,5 +120,8 @@ for (row in c('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Satur
 }
 printf('')
 
-#print(wst)
-#write.table(wst,file="data/out.csv",sep=",",row.names=TRUE)
+# write output file
+if (out.file) {
+  printf('Writing output file...')
+  write.csv(wst, file=out.file.name)
+}
